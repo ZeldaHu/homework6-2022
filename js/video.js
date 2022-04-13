@@ -1,4 +1,8 @@
 var video=document.querySelector("#player1");
+var video=document.querySelector("#player1");
+var mutestatus=false;
+var mutebtn = document.getElementById("mute");
+
 
 window.addEventListener("load", function() {
 	console.log("Good job opening the window");
@@ -39,20 +43,21 @@ document.querySelector("#skip").addEventListener("click", function() {
 	console.log("Video current time is", video.currentTime);
 });
 
-document.querySelector("#mute").addEventListener("click", function() {
+document.getElementById("mute").addEventListener("click",function(){
 	if(mutestatus == true){
 		mutestatus = false;
-		video.volume = 0;
-		document.querySelector("#mute").innerHTML = "Unmute";
-		console.log("Unmuted");
+		video.muted = false;
+		document.getElementById("mute").innerHTML = "Mute";
+		// console.log("Unmuted");
 	}
 	else{
 		mutestatus = true;
-		video.volume = 100;
-		document.querySelector("#mute").innerHTML = "Mute";
-		console.log("Muted");
+		video.muted = true;
+		document.getElementById("mute").innerHTML = "Unmute";
+		// console.log("Muted");
 
 	}
+
 });
 
 document.getElementById("slider").addEventListener("input",function(){
